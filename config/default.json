@@ -1,0 +1,7 @@
+{
+    "mongoURI": "mongodb+srv://clinton:liverpool@cluster0.xnjwo.mongodb.net/chat-app?retryWrites=true&w=majority",
+    "jwtSecret": "liverpool",
+    "githubClientID": "38840a5cd84cc3384c09",
+    "githubSecret": "43578ba303a33869301fb843ba9df8076a557663",
+    "cryptoKey": "159d64df811593c4f8cd5cd3f07174ee9e3f67a20b3e949eda6bc8ad86f3b928"
+}
