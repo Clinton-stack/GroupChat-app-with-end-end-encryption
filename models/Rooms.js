@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const RoomSchema = mongoose.Schema({
-  text: { type: mongoose.Schema.Types.ObjectId, ref: "messages" },
-  room: { type: Object, required: true },
+  room: { type: String, required: true },
+  created: {type: Date, default: Date.now()}
 
 });
 
-module.exports = Room = mongoose.model("rooms", MessagesSchema);
+module.exports = Room = mongoose.model('rooms', RoomSchema);

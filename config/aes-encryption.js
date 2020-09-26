@@ -15,7 +15,7 @@ let key = hash.digest().slice(0, 16);
 const iv = crypto.randomBytes(16);
 
 exports.encrypt= function (text) {
-  console.log(key.toString());
+  
   let cipher = crypto.createCipheriv(algorithm, key, iv);
   let encrypted = cipher.update(text);
   encrypted = Buffer.concat([encrypted, cipher.final()]);
