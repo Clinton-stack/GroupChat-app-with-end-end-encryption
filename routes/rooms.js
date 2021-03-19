@@ -42,7 +42,7 @@ router.post(
       if (user.role.toString() !== "ADMIN") {
         res.status(401).json({ msg: "User not Authorized" });
       }
-      //check is roomate already exist 
+      //check is roomname already exist 
       const {room} = req.body
       let newRoom = await Rooms.findOne({room });
 

@@ -6,9 +6,10 @@ const MessagesSchema = mongoose.Schema({
     text: {type: Object, required: true},
     name: { type: String },
     avatar: { type: String },
-    date: { type: Date, default: Date.now },
-    createdAt: { type: Date, default: Date.now, index: { expires: 3600 }
-  }
+    createdAt: { type: Date, expires: 36000, default: Date.now },
+    
 });
+
+MessagesSchema.index({ createdAt: 1}, {expiresAfterSeconds: 86400})
 
 module.exports = Message = mongoose.model('messages', MessagesSchema);

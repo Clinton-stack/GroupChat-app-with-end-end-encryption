@@ -1,11 +1,12 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const app = express();
+var cors = require('cors')
 
 
 //connect to database 
 connectDB();
-
+app.use(cors())
 app.get('/',(req, res) => res.send('API Running') );
 
 //middleware 

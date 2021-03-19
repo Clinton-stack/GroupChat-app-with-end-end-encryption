@@ -18,13 +18,14 @@ router.post('/', [
                     const errors = validationResult(req);
                     if (!errors.isEmpty()) {
                         return res.status(400).json({ errors: errors.array() });
-                    }
+                    } 
 
                     const {email, password} = req.body;
 
                     try {
                         // See if user exits
                         let user = await User.findOne({ email });
+        
                         if (!user) {
                             return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] })
                         }
@@ -40,12 +41,15 @@ router.post('/', [
                         const payload = {
                             user: { id: user.id }
                         }
-
+                        let loggedinUser = await User.findOne({ email }).select('-password');
                         jwt.sign(payload, config.get('jwtSecret'),
-                            { expiresIn: 360000 },
+                            { expiresIn: 7200 },
                             (err, token) => {
                                 if (err) throw err;
-                                res.json({ token });
+                                //res.json({ token });
+
+                                res.json({token, user: loggedinUser});
+                                
                             }
                         )
 
